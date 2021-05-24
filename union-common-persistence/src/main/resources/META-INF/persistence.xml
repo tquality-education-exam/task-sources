@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="urPersistence" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <non-jta-data-source>java:comp/env/jdbc/mysql</non-jta-data-source>
+        <class>com.a1qa.model.domain.Session</class>
+        <class>com.a1qa.model.domain.Project</class>
+        <class>com.a1qa.model.domain.Test</class>
+        <class>com.a1qa.model.domain.Status</class>
+        <class>com.a1qa.model.domain.Log</class>
+        <class>com.a1qa.model.domain.Attachment</class>
+        <class>com.a1qa.model.domain.Author</class>
+        <class>com.a1qa.model.domain.DevInfo</class>
+        <class>com.a1qa.model.domain.FailReason</class>
+        <class>com.a1qa.model.domain.FailReasonToTest</class>
+        <class>com.a1qa.model.domain.Variant</class>
+        <class>com.a1qa.model.domain.Token</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.connection.pool_size" value="100" />
+            <property name="hibernate.connection.datasource" value="java:comp/env/jdbc/mysql" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.enable_lazy_load_no_trans" value="true" />
+            <property name="hibernate.current_session_context_class" value="thread" />
+            <property name="hibernate.cache.use_second_level_cache" value="false"/>
+            <property name="hibernate.cache.use_query_cache" value="false"/>
+            <property name="hibernate.connection.release_mode" value="after_transaction"/>
+            <!-- DEBUG PURPOSES (uncomment rows below and comment "hibernate.connection.datasource"  + non-jta-data-source properties) -->
+            <!--<property name="hibernate.connection.url" value="jdbc:h2:tcp://localhost/reporting;INIT=SET SCHEMA union_reporting" />
+            <property name="hibernate.connection.username" value="root" />
+            <property name="hibernate.connection.password" value="!huds0n" />-->
+        </properties>
+    </persistence-unit>
+</persistence>
