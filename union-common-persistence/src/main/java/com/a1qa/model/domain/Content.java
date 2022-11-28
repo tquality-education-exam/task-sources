@@ -1,9 +1,9 @@
 package com.a1qa.model.domain;
 
 public class Content {
-    public String content;
+    private String content;
 
-    public String contentType;
+    private String contentType;
 
     public String getContent() {
         return content;
