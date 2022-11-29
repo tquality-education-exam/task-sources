@@ -1,23 +1,12 @@
 package com.a1qa.model.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class Content {
+    @Getter @Setter
     private String content;
 
+    @Getter @Setter
     private String contentType;
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
-    }
 }
