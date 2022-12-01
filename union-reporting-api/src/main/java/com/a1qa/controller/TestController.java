@@ -120,18 +120,16 @@ public class TestController extends ABaseController {
     /**
      * Store test attachments (page source, screenshots, any other files)
      * @param testId (required) Test id
-     * @param content (required) String with Base64-encoded content
-     * @param contentType (required) Content type (E.g., "text/html", "image/png", etc)
+     * @param content (required) An object. String with Base64-encoded content and content type (E.g., "text/html", "image/png", etc)
      */
     @RequestMapping(value = "/test/put/attachment", method = RequestMethod.POST)
     public void putAttachment(@RequestParam(value = "testId") long testId,
-                              @RequestParam(value = "content") String content,
-                              @RequestParam(value = "contentType") String contentType) {
+                              @RequestBody Content content) {
         Test test = new Test();
         test.setId(testId);
         Attachment attachment = new Attachment();
-        attachment.setContent(Base64.getDecoder().decode(content));
-        attachment.setContentType(contentType);
+        attachment.setContent(Base64.getDecoder().decode(content.getContent()));
+        attachment.setContentType(content.getContentType());
         attachment.setTest(test);
         HibernateUtil.save(attachment);
     }
