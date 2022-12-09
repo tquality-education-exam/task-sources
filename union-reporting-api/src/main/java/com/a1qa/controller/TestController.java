@@ -89,6 +89,16 @@ public class TestController extends ABaseController {
     }
 
     /**
+     * Delete test
+     * @param testId (required) Test id
+     */
+    @RequestMapping(value = "/test/delete", method = RequestMethod.DELETE)
+    public void deleteTest(@RequestParam(value = "testId") long testId){
+        Test test = HibernateUtil.getEntityById(Test.class, testId);
+        HibernateUtil.remove(test);
+    }
+
+    /**
      * Get full test info (with artifacts, development info and so on)
      * @param testId (required) Test id
      * @return Test info {@link Test}
