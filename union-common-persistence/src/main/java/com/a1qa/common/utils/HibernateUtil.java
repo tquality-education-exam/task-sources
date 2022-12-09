@@ -50,11 +50,9 @@ public class HibernateUtil {
      * @param entity Entity
      * @param <T> Extends ABaseEntity
      */
-    public static <T extends ABaseEntity> void remove(Class<T> entity, long id) {
+    public static <T extends ABaseEntity> void remove(T entity) {
         beginTransaction();
-        EntityManager em = getEntityManager();
-        em.find(entity, id);
-        em.remove(entity);
+        getEntityManager().remove(entity);
         endTransaction();
     }
 
