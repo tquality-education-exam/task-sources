@@ -53,8 +53,6 @@ public class HibernateUtil {
     public static <T extends ABaseEntity> void remove(T entity) {
         beginTransaction();
         getEntityManager().remove(entity);
-        getEntityManager().flush();
-        getEntityManager().clear();
         endTransaction();
     }
 
