@@ -122,7 +122,7 @@ public class TestController extends ABaseController {
      * @param testId (required) Test id
      * @param content (required) An object. String with Base64-encoded content and content type (E.g., "text/html", "image/png", etc)
      */
-    @RequestMapping(value = "/test/put/attachment", method = RequestMethod.POST)
+    @RequestMapping(value = "/test/put/attachment", method = RequestMethod.POST, consumes = { "application/json" })
     public void putAttachment(@RequestParam(value = "testId") long testId,
                               @RequestBody Content content) {
         Test test = new Test();
